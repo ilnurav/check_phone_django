@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка номера телефона</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        input[type="text"] { padding: 8px; width: 300px; }
+        button { padding: 8px 15px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+        .result { margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Проверка номера телефона</h1>
+
+    <form method="get">
+        <div class="form-group">
+            <label for="phone">Введите номер телефона (формат 79123456789):</label><br>
+            <input type="text" id="phone" name="phone" value="{{ phone|default:'' }}" required>
+        </div>
+        <button type="submit">Проверить</button>
+    </form>
+
+    {% if phone %}
+        <div class="result">
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% else %}
+                <h3>Результат проверки:</h3>
+                <p><strong>Номер:</strong> {{ phone }}</p>
+                <p><strong>Оператор:</strong> {{ operator }}</p>
+                <p><strong>Регион:</strong> {{ region }}</p>
+                {% if inn %}
+                    <p><strong>ИНН оператора:</strong> {{ inn }}</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
