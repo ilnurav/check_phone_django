@@ -34,4 +34,4 @@
 1. Клонировать репозиторий:
    ```bash
    git clone [repository-url]
-   cd phone-number-lookup```
+   cd phone-number-lookup
