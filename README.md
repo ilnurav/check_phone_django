@@ -35,3 +35,16 @@
    ```bash
    git clone [repository-url]
    cd phone-number-lookup
+
+2. Установить зависимости:
+```bash
+pip install -r requirements.txt
+Настроить базу данных в settings.py
+
+3. Применить миграции:
+```bash
+python manage.py migrate
+
+4. Запустить сервер:
+```bash
+python manage.py runserver
